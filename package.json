@@ -1,0 +1,36 @@
+{
+    "name": "vscode-metta",
+    "displayName": "MeTTa Language Support",
+    "description": "LSP support for MeTTa language",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "activationEvents": [],
+    "main": "./client/src/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "metta",
+                "aliases": [
+                    "MeTTa",
+                    "metta"
+                ],
+                "extensions": [
+                    ".metta"
+                ],
+                "configuration": "./client/language-configuration.json"
+            }
+        ]
+    },
+    "scripts": {
+        "install:all": "npm install",
+        "start": "cd client && npm run start"
+    },
+    "workspaces": [
+        "client",
+        "server",
+        "grammar"
+    ],
+    "dependencies": {}
+}
