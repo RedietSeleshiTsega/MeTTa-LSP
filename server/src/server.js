@@ -44,25 +44,6 @@ const BUILTIN_SYMBOLS = new Set([
     '=', ':', '->', '!', '&', '|', 'not', 'and', 'or'
 ]);
 
-// Store workspace folders for reference finding
-let workspaceFolders = [];
-
-// Parse cache: uri -> { tree, content, timestamp, usageIndex, oldTree }
-// usageIndex: symbolName -> [ranges]
-// oldTree: for incremental parsing
-const parseCache = new Map();
-
-// Scope tree: uri -> Map<nodeId, { parent, children, symbols: Set<symbolName>, startLine, endLine }>
-// For better semantic scope precision
-const scopeTrees = new Map();
-
-// Built-in MeTTa symbols that should not be renamed
-const BUILTIN_SYMBOLS = new Set([
-    'if', 'let', 'let*', 'match', 'case', 'collapse', 'superpose',
-    'Cons', 'Nil', 'True', 'False', 'empty', 'Error',
-    '=', ':', '->', '!', '&', '|', 'not', 'and', 'or'
-]);
-
 function uriToPath(uri) {
     try {
         const url = new URL(uri);
